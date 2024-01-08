@@ -1,0 +1,162 @@
+﻿[
+  {
+    "Id": "BE1C681E-CCE3-4340-B0FD-E72261F0E960",
+    "Name": "Hygrogen",
+    "Symbol": "H",
+    "AtomicNumber": 1,
+    "AtomicMass": 1.0080,
+    "ElectroValency": 1
+  },
+  {
+    "Id": "A1CDB287-8C5F-4A82-B5AC-D2E84BF44230",
+    "Name": "Helium",
+    "Symbol": "He",
+    "AtomicNumber": 2,
+    "AtomicMass": 4.0026,
+    "ElectroValency": 0
+  },
+  {
+    "Id": "002D9ADD-FE1C-4E42-A351-4FD7BDB0A8BC",
+    "Name": "Lithium",
+    "Symbol": "Li",
+    "AtomicNumber": 3,
+    "AtomicMass": 6.94,
+    "ElectroValency": 1
+  },
+  {
+    "Id": "C3E39AAF-9DC1-4966-88E0-F0AB41E2D0A5",
+    "Name": "Beryllium",
+    "Symbol": "Be",
+    "AtomicNumber": 4,
+    "AtomicMass": 9.0122,
+    "ElectroValency": 2
+  },
+  {
+    "Id": "E7F18280-06AB-4EAA-A23B-65290A308F8A",
+    "Name": "Boron",
+    "Symbol": "B",
+    "AtomicNumber": 5,
+    "AtomicMass":10.81,
+    "ElectroValency": 3
+  },
+  {
+    "Id": "27251887-3BCA-4FBB-8E06-57B39E495F59",
+    "Name": "Carbon",
+    "Symbol": "C",
+    "AtomicNumber": 6,
+    "AtomicMass": 12.011,
+    "ElectroValency": 4
+  },
+  {
+    "Id": "5AAED026-9192-43A7-A3A0-8EAED12CC10D",
+    "Name": "Nitrogen",
+    "Symbol": "N",
+    "AtomicNumber": 7,
+    "AtomicMass": 14.007,
+    "ElectroValency": 3
+  },
+  {
+    "Id": "BE39CC70-5356-440D-8000-BAC283CABC7D",
+    "Name": "Oxygen",
+    "Symbol": "O",
+    "AtomicNumber": 8,
+    "AtomicMass": 15.999,
+    "ElectroValency": 2
+  },
+  {
+    "Id": "DA1197D8-7BA7-455E-BA33-C8293AD7765A",
+    "Name": "Fluorine",
+    "Symbol": "F",
+    "AtomicNumber": 9,
+    "AtomicMass": 18.998,
+    "ElectroValency": 1
+  },
+  {
+    "Id": "EF19273E-7BBE-4D90-BEB4-17B6CF74A3F5",
+    "Name": "Neon",
+    "Symbol": "Ne",
+    "AtomicNumber": 10,
+    "AtomicMass": 20.180,
+    "ElectroValency": 0
+  },
+  {
+    "Id": "FB9FAD70-1020-43B3-8871-BEDD67A5001E",
+    "Name": "Sodium",
+    "Symbol": "Na",
+    "AtomicNumber": 11,
+    "AtomicMass": 22.990,
+    "ElectroValency": 1
+  },
+  {
+    "Id": "CDA61DE0-20E2-4BF3-924D-DC4F1F5CD51C",
+    "Name": "Magnesium",
+    "Symbol": "Mg",
+    "AtomicNumber": 12,
+    "AtomicMass": 24.305,
+    "ElectroValency": 2
+  },
+  {
+    "Id": "EDD390BE-4365-4655-AD29-4C6084CD3B15",
+    "Name": "Aluminium",
+    "Symbol": "Al",
+    "AtomicNumber": 13,
+    "AtomicMass": 26.982,
+    "ElectroValency": 3
+  },
+  {
+    "Id": "3A59C779-D930-454D-8C5F-3B76896C800C",
+    "Name": "Silicon",
+    "Symbol": "Si",
+    "AtomicNumber": 14,
+    "AtomicMass": 28.085,
+    "ElectroNegativity": 4
+  },
+  {
+    "Id": "47D59787-7AA8-460F-BB62-95FC3006F7AF",
+    "Name": "Phosphorus",
+    "Symbol": "P",
+    "AtomicNumber": 15,
+    "AtomicMass": 30.974,
+    "ElectroValency": 4
+  },
+  {
+    "Id": "4768B422-0FAF-4333-9C29-D7BDEF9C4966",
+    "Name": "Sulphur",
+    "Symbol": "S",
+    "AtomicNumber": 16,
+    "AtomicMass": 32.06,
+    "ElectroValency": 2
+  },
+  {
+    "Id": "E2DC19B7-C857-4BEB-8ADC-C0519C908BEE",
+    "Name": "Chlorine",
+    "Symbol": "Cl",
+    "AtomicNumber": 17,
+    "AtomicMass": 35.45,
+    "ElectroValency": 1
+  },
+  {
+    "Id": "F993F6F6-BF55-4A99-AFE4-9DD0E63BC64B",
+    "Name": "Argon",
+    "Symbol": "Ar",
+    "AtomicNumber": 18,
+    "AtomicMass": 39.95,
+    "ElectroValency": 0
+  },
+  {
+    "Id": "3E9B52B2-3BEC-41C6-B181-780EAEF1A588",
+    "Name": "Potassium",
+    "Symbol": "K",
+    "AtomicNumber": 19,
+    "AtomicMass": 39.098,
+    "ElectroValency": 1
+  },
+  {
+    "Id": "15ABD866-B43E-4CA7-877C-3052769598C7",
+    "Name": "Calcium",
+    "Symbol": "Ca",
+    "AtomicNumber": 20,
+    "AtomicMass": 40.078,
+    "ElectroValency": 2
+  }
+]
