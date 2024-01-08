@@ -7,6 +7,9 @@ using Xunit;
 using Microsoft.EntityFrameworkCore;
 using Infrastructure.Repo;
 using Infrastructure;
+using EntityFrameworkCoreMock;
+using Moq;
+using Models;
 
 namespace Tests
 {
@@ -17,12 +20,12 @@ namespace Tests
 
         public UnitOfWorkTest()
         {
-            _context = new SciDbContext(
-                new DbContextOptionsBuilder().UseSqlServer(@"Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Periodic Table;
-                                    Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;
-                      Application Intent=ReadWrite;Multi Subnet Failover=False").Options
+            List<Element> elements = new List<Element>() { };
 
-                );
+            DbContextMock<SciDbContext> mocker= new DbContextMock<SciDbContext>(new DbContextOptionsBuilder().Options);
+
+            _context = mocker.Object;
+            mocker.CreateDbSetMock(temp => temp.Atoms, elements);
             _unitOfWork = new UnitOfWork(_context);
         }
 

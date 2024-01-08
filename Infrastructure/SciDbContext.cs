@@ -13,7 +13,7 @@ namespace Infrastructure
 
         }
 
-        public DbSet<Element> Atoms { get; set; }
+        public virtual DbSet<Element> Atoms { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
