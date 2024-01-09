@@ -47,7 +47,7 @@ namespace Tests
         [Fact]
         public async Task Molecular_mass()
         {
-            double? mass = await _service.MolecularMass("H20");
+            double? mass = await _service.MolecularMass("H2O");
             Assert.Equal(18.015,mass);
         }
 

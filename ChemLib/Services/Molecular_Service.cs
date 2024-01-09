@@ -69,9 +69,11 @@ namespace ChemLib.Services
                     //if letter is uppercase
                     if (char.IsUpper(i))
                     {
-                        if(secondcount==true)
+                        if (secondcount == true && !string.IsNullOrEmpty(concatSymbol))
+                        {
                             mass = await _context.GetMassBySymbol(concatSymbol);
-                        sum += mass;
+                            sum += mass;
+                        }
 
                         concatSymbol = i.ToString();
                         secondcount = true;
