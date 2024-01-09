@@ -10,6 +10,8 @@ using Infrastructure;
 using EntityFrameworkCoreMock;
 using Moq;
 using Models;
+using AutoFixture;
+using AutoFixture.Kernel;
 
 namespace Tests
 {
@@ -17,10 +19,21 @@ namespace Tests
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly SciDbContext _context;
+        private readonly IFixture _fixture;
 
         public UnitOfWorkTest()
         {
-            List<Element> elements = new List<Element>() { };
+            _fixture = new Fixture();
+            List<Element> elements = new List<Element>() {
+            _fixture.Build<Element>().With(temp=>temp.Name, "Hydrogen")
+            .With(temp=>temp.AtomicNumber,1).With(temp=>temp.AtomicMass,1.0080)
+            .With(temp=>temp.Symbol,"H").Create(),  
+                
+                _fixture.Build<Element>().With(temp=>temp.Name, "Oxygen")
+            .With(temp=>temp.AtomicNumber,8).With(temp=>temp.AtomicMass, 15.999)
+            .With(temp=>temp.Symbol,"O").Create()
+
+            };
 
             DbContextMock<SciDbContext> mocker= new DbContextMock<SciDbContext>(new DbContextOptionsBuilder().Options);
 
@@ -32,8 +45,8 @@ namespace Tests
         [Fact]
         public async Task SearchMass()
         {
-            double? mass = await _unitOfWork.GetMassBySymbol("Na");
-            Assert.Equal(22.990, mass);
+            double? mass = await _unitOfWork.GetMassBySymbol("O");
+            Assert.Equal(15.999, mass);
         }
         
     }
