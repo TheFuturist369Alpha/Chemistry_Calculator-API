@@ -31,7 +31,12 @@ namespace Tests
                 
                 _fixture.Build<Element>().With(temp=>temp.Name, "Oxygen")
             .With(temp=>temp.AtomicNumber,8).With(temp=>temp.AtomicMass, 15.999)
-            .With(temp=>temp.Symbol,"O").Create()
+            .With(temp=>temp.Symbol,"O").Create(),
+
+
+                 _fixture.Build<Element>().With(temp=>temp.Name, "Magnesium")
+            .With(temp=>temp.AtomicNumber,12).With(temp=>temp.AtomicMass, 24.305)
+            .With(temp=>temp.Symbol,"Mg").Create(),
 
             };
 
