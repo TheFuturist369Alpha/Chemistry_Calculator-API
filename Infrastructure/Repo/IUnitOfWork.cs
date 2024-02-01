@@ -12,6 +12,6 @@ namespace Infrastructure.Repo
         public Task<Element> GetElementByAtomicNum(int atomicNum);
         public Task AddElement(Element atom);
         public Task<List<Element>> GetAllElements();
-        public Task<double?> GetMassBySymbol(string symbol);
+        public Task<double> GetMassBySymbol(string symbol);
     }
 }

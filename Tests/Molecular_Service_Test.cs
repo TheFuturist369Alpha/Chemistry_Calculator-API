@@ -24,12 +24,16 @@ namespace Tests
             _fixture = new Fixture();
             List<Element> elements = new List<Element>() {
             _fixture.Build<Element>().With(temp=>temp.Name, "Hydrogen")
-            .With(temp=>temp.AtomicNumber,1).With(temp=>temp.AtomicMass,1.0080)
+            .With(temp=>temp.AtomicNumber,1).With(temp=>temp.AtomicMass,1.00794)
             .With(temp=>temp.Symbol,"H").Create(),
 
                 _fixture.Build<Element>().With(temp=>temp.Name, "Oxygen")
-            .With(temp=>temp.AtomicNumber,8).With(temp=>temp.AtomicMass, 15.999)
-            .With(temp=>temp.Symbol,"O").Create()
+            .With(temp=>temp.AtomicNumber,8).With(temp=>temp.AtomicMass, 15.9994)
+            .With(temp=>temp.Symbol,"O").Create(),
+
+                 _fixture.Build<Element>().With(temp=>temp.Name, "Magnesium")
+            .With(temp=>temp.AtomicNumber,12).With(temp=>temp.AtomicMass, 24.3050)
+            .With(temp=>temp.Symbol,"Mg").Create()
 
             };
 
@@ -47,8 +51,9 @@ namespace Tests
         [Fact]
         public async Task Molecular_mass()
         {
-            double? mass = await _service.MolecularMass("H2O");
-            Assert.Equal(18.015,mass);
+            double mass = Math.Round(await _service.MolecularMass("Mg2O2H"),2);
+            Assert.Equal(81.62, mass);
+            
         }
 
 

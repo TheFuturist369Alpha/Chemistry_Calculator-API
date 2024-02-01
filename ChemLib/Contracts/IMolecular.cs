@@ -8,7 +8,7 @@ namespace ChemLib.Contracts
 {
     public interface IMolecular
     {
-        public Task<double?> MolecularMass(string molecule);
+        public Task<double> MolecularMass(string molecule);
         
     }
 }

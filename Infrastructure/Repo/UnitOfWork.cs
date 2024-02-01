@@ -44,18 +44,18 @@ namespace Infrastructure.Repo
 
         }
 
-        public async Task<double?> GetMassBySymbol(string symbol)
+        public async Task<double> GetMassBySymbol(string symbol)
         {
             if (symbol == null)
             {
-                return null;
+                return 0.0;
             }
             Element i=await _context.Atoms.FirstOrDefaultAsync(obj=>obj.Symbol== symbol);
             if (i != null)
             {
                 return i.AtomicMass;
             }
-            return null;
+            return 0.0;
         }
     }
 }

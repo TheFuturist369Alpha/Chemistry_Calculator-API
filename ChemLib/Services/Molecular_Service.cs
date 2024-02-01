@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Infrastructure.Repo;
+using System.Text.RegularExpressions;
 
 namespace ChemLib.Services
 {
@@ -17,95 +18,77 @@ namespace ChemLib.Services
             _context = context;
 
         }
-        public async Task<double?> MolecularMass(string molecularFormula)
+
+        private async Task<double> processString(string a)
         {
-            double? mass=null;
-            string molecule_number = "";
-            string numat = "";
-            double? sum = 0;
-            bool firstCount = true;
-            bool secondcount = false;
-            string concatSymbol = "";
+            double val = 0.0;
+            string expr = @"([A-Z][a-z]?(\d*))";
 
-                if (molecularFormula == null)
+            string newStr = Regex.Replace(a, expr, "$1 ").Trim();
+            string[] arr = newStr.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            string expr0 = @"^[A-Z][a-z]?$";
+            string expr1 = @"[A-Z][a-z]?\d+";
+            string expr2 = @"\d+";
+            string expr3 = @"[a-zA-Z]+";
+            foreach (var i in arr)
+            {
+                bool ask = Regex.IsMatch(i, expr0);
+                if (ask)
                 {
-                    throw new ArgumentNullException();
+                    val += await _context.GetMassBySymbol(i);
                 }
-                //looping through each character in the "molecularformula" string
-                foreach (char i in molecularFormula)
+                else if(Regex.IsMatch(i, expr1))
                 {
-                     //if first character is a digit
-                    if (char.IsDigit(i) && firstCount==true)
-                {
-                    //append digit to "molecule_number"
-                    molecule_number += i;
-                    continue;
-                    
-                    
-                }
-                    //if first character is a letter
-                else if(char.IsLetter(i) && firstCount == true) 
-                {
-                    //if "molecule_number" is empty
-                    if (string.IsNullOrEmpty(molecule_number))
-                        //assign 1
-                    molecule_number = "1";
+                    double vlu = 0;
+                    string str = Regex.Replace(i, expr2, "");
 
-                    firstCount = false;
-                    
-                    
-                }
-                    //if letter is or is not the first character
-                if (char.IsLetter(i))
-                {
-                    //if there is intermediate number between two elements
-                    if (!string.IsNullOrEmpty(numat))
-                    {
-                        mass = await _context.GetMassBySymbol(concatSymbol);
-                        mass*=int.Parse(numat);
-                        numat = "";
+                    vlu += await _context.GetMassBySymbol(str);
 
-                    }
-                    //if letter is uppercase
-                    if (char.IsUpper(i))
-                    {
-                        if (secondcount == true && !string.IsNullOrEmpty(concatSymbol))
-                        {
-                            mass = await _context.GetMassBySymbol(concatSymbol);
-                            sum += mass;
-                        }
-
-                        concatSymbol = i.ToString();
-                        secondcount = true;
-                        continue;
-                    }
-                    else if(char.IsLower(i))
-                    {
-                        concatSymbol += i.ToString();
-                        secondcount = false;
-                        continue;
-                    }
+                    int num = Convert.ToInt32(Regex.Replace(i,expr3 , ""));
+                    vlu *= num;
                     
-                    
-                    
+                    val+=vlu;
 
                 }
 
-                else if (char.IsDigit(i))
-                {
-                    numat += i.ToString();
-                    continue;
 
-                }
-                sum += mass;
-
-                
-
-                
-               
-                
             }
-            return sum;
+            return val;
+        }
+
+
+
+
+        public async Task<double> MolecularMass(string molecularFormula)
+        {
+            string compr0 = @"[(a-z)?A-Z(\d)?]+";
+
+            if (Regex.IsMatch(molecularFormula, compr0))
+            {
+                string compr1 = @"^\d+[(a-z)?A-Z(\d)?]+";
+               
+
+                if (Regex.IsMatch(molecularFormula, compr1))
+                {
+
+                    int firstc=Convert.ToInt32(Regex.Replace(molecularFormula, @"(^\d+).*", "$1"));
+
+                    return (await processString(Regex.Replace(molecularFormula, @"^\d+", ""))) * firstc;
+
+
+
+                }
+
+                return await processString(molecularFormula);
+            }
+
+            else
+            {
+                return 0.000;
+            }
+
+
+           
             }
         }
     }

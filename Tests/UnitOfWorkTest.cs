@@ -45,8 +45,8 @@ namespace Tests
         [Fact]
         public async Task SearchMass()
         {
-            double? mass = await _unitOfWork.GetMassBySymbol("O");
-            Assert.Equal(15.999, mass);
+            double? mass = await _unitOfWork.GetMassBySymbol("Mg");
+            Assert.Equal(24.305, mass);
         }
         
     }
