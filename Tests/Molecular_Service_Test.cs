@@ -51,7 +51,11 @@ namespace Tests
 
                    _fixture.Build<Element>().With(temp=>temp.Name, "Nitrogen")
             .With(temp=>temp.AtomicNumber,7).With(temp=>temp.AtomicMass, 14.007)
-            .With(temp=>temp.Symbol,"N").Create()
+            .With(temp=>temp.Symbol,"N").Create(),
+
+                    _fixture.Build<Element>().With(temp=>temp.Name, "Silicon")
+            .With(temp=>temp.AtomicNumber,14).With(temp=>temp.AtomicMass, 28.085)
+            .With(temp=>temp.Symbol,"Si").Create()
 
             };
 
@@ -77,14 +81,16 @@ namespace Tests
         [Fact]
         public async Task EmpiricalFormula()
         {
-            await _service.SetElementsForEMF("C", 38.8);
-            await _service.SetElementsForEMF("H", 16.2);
-            await _service.SetElementsForEMF("N", 45.1);
-            //await _service.SetElementsForEMF("Mg", 23.3);
-            //await _service.SetElementsForEMF("S", 30.7);
-            //await _service.SetElementsForEMF("O", 46.0);
+            //await _service.SetElementsForEMF("C", 40.0);
+           
+            //await _service.SetElementsForEMF("N", 45.1);
+            await _service.SetElementsForEMF("Mg", 28.03);
+            await _service.SetElementsForEMF("Si", 21.60);
+            //await _service.SetElementsForEMF("S", 84.2);
+            await _service.SetElementsForEMF("H", 1.16);
+            await _service.SetElementsForEMF("O", 49.21);
             string? act=await _service.CalculateEMF();
-            Assert.Equal("O:1 H:1", act);
+            Assert.Equal("Mg3Si2H3O8", act);
         }
 
 

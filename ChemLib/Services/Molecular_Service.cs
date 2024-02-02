@@ -120,8 +120,6 @@ namespace ChemLib.Services
 
                 double Goe = (percentCompo.Value)/100, mol=Goe/molarMass;
                 MolesOfEachElement.Add(mol);
-
-            
             }
 
             int index = 0;
