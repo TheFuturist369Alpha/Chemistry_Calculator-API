@@ -10,7 +10,7 @@ namespace ChemLib.Contracts
     {
         public Task<double> MolecularMass(string molecule);
         public Task SetElementsForEMF(string element, double percent_compo);
-        public Task<string?> CalculateEMF(double? totalGrams);
+        public Task<string?> CalculateEMF();
 
 
     }

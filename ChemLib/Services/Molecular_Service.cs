@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Infrastructure.Repo;
 using System.Text.RegularExpressions;
+using Utils;
+using Microsoft.Identity.Client;
 
 namespace ChemLib.Services
 {
@@ -80,7 +82,7 @@ namespace ChemLib.Services
 
                 return await processString(molecularFormula);
             }
-                return 0.000;
+            throw new ArgumentException("Input not in the right format.");
             
             }
 
@@ -99,43 +101,46 @@ namespace ChemLib.Services
 
         }
 
-        public async Task<string?> CalculateEMF(double? totalGrams)
+        public async Task<string?> CalculateEMF()
         {
-            if ((elements.Count == 0) || (totalGrams==0 || totalGrams==null))
+            if (elements.Count == 0)
             {
                 return null;
             }
-
+            TotalPercent=Math.Round(TotalPercent, 0);
             if (TotalPercent != 100)
             {
                 throw new Exception("Total percent composition greater than or lesser than 100.");
             }
 
-            List<double?> MolesOfEachElement = new List<double?>();
+            List<double> MolesOfEachElement = new List<double>();
 
             foreach (var percentCompo in elements) {
-                double? molarMass = await _context.GetMassBySymbol(percentCompo.Key);
+                double molarMass = await _context.GetMassBySymbol(percentCompo.Key);
 
-                double? Goe = (totalGrams * percentCompo.Value)/100, mol=Goe/molarMass;
+                double Goe = (percentCompo.Value)/100, mol=Goe/molarMass;
                 MolesOfEachElement.Add(mol);
 
             
             }
 
             int index = 0;
-            double? min = MolesOfEachElement.Min();
+            double min = MolesOfEachElement.Min();
             while(index < MolesOfEachElement.Count)
             {
                 MolesOfEachElement[index] /= min;
                 index=index + 1;
             }
+            FracToWhole.Convert1(MolesOfEachElement);
 
             index = 0;
             string cnct = "";
 
             foreach(var element in elements)
             {
-                cnct += element.Key + ":" + Convert.ToString(MolesOfEachElement[index])+" ";
+                string i = Convert.ToString(Math.Round(MolesOfEachElement[index], 2));
+                cnct += element.Key+(i=="1"?"":i);
+                index = index + 1;
             }
 
             return cnct.Trim();

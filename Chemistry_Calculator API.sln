@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.33711.374
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chemistry_Calculator API", "Chemistry_Calculator API\Chemistry_Calculator API.csproj", "{9ED62E0C-BEE1-4AC4-B1C1-E41C0CAC9020}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chemistry_Calculator API", "Chemistry_Calculator API\Chemistry_Calculator API.csproj", "{9ED62E0C-BEE1-4AC4-B1C1-E41C0CAC9020}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChemLib", "ChemLib\ChemLib.csproj", "{705FA4C9-58DB-44CE-BDBB-013DFFC1CD9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChemLib", "ChemLib\ChemLib.csproj", "{705FA4C9-58DB-44CE-BDBB-013DFFC1CD9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{96DCD63B-C0E0-4E33-83D6-E87B715CA61D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{96DCD63B-C0E0-4E33-83D6-E87B715CA61D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{9083FB75-0474-4D2A-9FA5-A5A389C7BEDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{9083FB75-0474-4D2A-9FA5-A5A389C7BEDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{0D96CC42-BA81-429A-B7FC-76D14B3CB36D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{0D96CC42-BA81-429A-B7FC-76D14B3CB36D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Utils\Utils.csproj", "{0B3A4522-DDE6-4D1D-8332-029A33366643}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{0D96CC42-BA81-429A-B7FC-76D14B3CB36D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D96CC42-BA81-429A-B7FC-76D14B3CB36D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D96CC42-BA81-429A-B7FC-76D14B3CB36D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B3A4522-DDE6-4D1D-8332-029A33366643}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B3A4522-DDE6-4D1D-8332-029A33366643}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B3A4522-DDE6-4D1D-8332-029A33366643}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B3A4522-DDE6-4D1D-8332-029A33366643}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
