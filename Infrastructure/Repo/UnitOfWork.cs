@@ -57,5 +57,23 @@ namespace Infrastructure.Repo
             }
             return 0.0;
         }
+
+        public async Task<Element?> GetElementBySymbol(string symbol)
+        {
+            return await _context.Atoms.FirstOrDefaultAsync(obj => obj.Symbol == symbol);
+        }
+
+        public async Task<bool> isElement(string element)
+        {
+            if (element == null)
+            {
+                return false;
+            }
+
+            Element? e = await GetElementBySymbol(element);
+            if (e != null)
+                return true;
+            return false;
+        }
     }
 }

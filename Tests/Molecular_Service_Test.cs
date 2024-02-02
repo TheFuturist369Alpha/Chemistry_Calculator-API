@@ -60,6 +60,15 @@ namespace Tests
             
         }
 
+        [Fact]
+        public async Task EmpiricalFormula()
+        {
+            await _service.SetElementsForEMF("H", 50);
+            await _service.SetElementsForEMF("O", 50);
+            string? act=await _service.CalculateEMF(123);
+            Assert.Equal("O:1 H:1", act);
+        }
+
 
     }
 }

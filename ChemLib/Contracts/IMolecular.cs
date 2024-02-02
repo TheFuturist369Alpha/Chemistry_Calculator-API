@@ -9,6 +9,9 @@ namespace ChemLib.Contracts
     public interface IMolecular
     {
         public Task<double> MolecularMass(string molecule);
-        
+        public Task SetElementsForEMF(string element, double percent_compo);
+        public Task<string?> CalculateEMF(double? totalGrams);
+
+
     }
 }

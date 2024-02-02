@@ -13,5 +13,7 @@ namespace Infrastructure.Repo
         public Task AddElement(Element atom);
         public Task<List<Element>> GetAllElements();
         public Task<double> GetMassBySymbol(string symbol);
+        public Task<Element?> GetElementBySymbol(string symbol);
+        public Task<bool> isElement(string element);
     }
 }
