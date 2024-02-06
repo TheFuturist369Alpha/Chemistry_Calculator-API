@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Infrastructure;
-
+using ChemLib.Contracts;
+using ChemLib.Services;
+using Infrastructure.Repo;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -13,6 +15,10 @@ builder.Services.AddDbContext<SciDbContext>(opts =>
 {
     opts.UseSqlServer(builder.Configuration["ConnectionStrings:DefaultConnection"]);
 });
+
+builder.Services.AddScoped<IMolecular, Molecular_Service>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
 
 
 var app = builder.Build();

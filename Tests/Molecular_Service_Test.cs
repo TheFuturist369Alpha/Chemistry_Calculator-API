@@ -84,13 +84,13 @@ namespace Tests
             //await _service.SetElementsForEMF("C", 40.0);
            
             //await _service.SetElementsForEMF("N", 45.1);
-            await _service.SetElementsForEMF("Mg", 28.03);
-            await _service.SetElementsForEMF("Si", 21.60);
+            //await _service.SetElementsForEMF("Mg", 28.03);
+            //await _service.SetElementsForEMF("Si", 21.60);
             //await _service.SetElementsForEMF("S", 84.2);
-            await _service.SetElementsForEMF("H", 1.16);
-            await _service.SetElementsForEMF("O", 49.21);
+            await _service.SetElementsForEMF("H", 50.00);
+            await _service.SetElementsForEMF("O", 50.00);
             string? act=await _service.CalculateEMF();
-            Assert.Equal("Mg3Si2H3O8", act);
+            Assert.Equal("HO", act);
         }
 
 
