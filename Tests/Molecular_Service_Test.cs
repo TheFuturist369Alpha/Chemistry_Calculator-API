@@ -90,7 +90,7 @@ namespace Tests
             await _service.SetElementsForEMF("H", 50.00);
             await _service.SetElementsForEMF("O", 50.00);
             string? act=await _service.CalculateEMF();
-            Assert.Equal("HO", act);
+            Assert.Equal("H16O", act);
         }
 
 

@@ -23,12 +23,23 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+//TODO: Configure the HTTP request pipeline.
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+using(var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var dbContext = services.GetRequiredService<SciDbContext>();
+    dbContext.Database.EnsureCreated();
+    dbContext.Database.Migrate();
+
+   await dbContext.SeedDataAsync(services);
+}
+
 
 app.UseAuthorization();
 
